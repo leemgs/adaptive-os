@@ -1,5 +1,4 @@
-# AdaptiveOS — Prototype (AAAI Adaptive OS)
-
+# AdaptiveOS — Prototype
 This repository provides a runnable prototype of **AdaptiveOS**, mapping to the paper’s architecture: Telemetry → Semantic KB → LLM Reasoning → Safety Runtime → Interfaces (CLI/REST).  
 It defaults to **simulation mode** (no root) and includes **optional eBPF stubs** for ctx‑switch sampling (root + bcc).
 
