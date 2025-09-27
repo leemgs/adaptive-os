@@ -25,23 +25,26 @@ python src/cli/kgpt_cli.py recommend --workload streaming
 
 ## Tree
 ```
-kernelgpt/
-├── LICENSE.md
-├── README.md
-├── requirements.txt
-├── main.py
+AdaptiveOS/
+├── LICENSE.md                # Apache-2.0
+├── README.md                 # 실행/구성/주의사항
+├── requirements.txt          # 경량 의존성(오프라인에서도 설치 가능)
+├── main.py                   # 시뮬레이션 E2E 오케스트레이터
 ├── data/samples/telemetry_log.csv
 ├── patches/
-│   ├── merge_writeback.patch
-│   └── sched_child_runs_first.patch
+│   ├── merge_writeback.patch             # vm.dirty_* → vm.dirty_budget_ratio 통합
+│   └── sched_child_runs_first.patch      # CFS 레거시 knob 중립화
 └── src/
-    ├── api/app.py
-    ├── cli/kgpt_cli.py
-    ├── kb/kb.py
+    ├── api/app.py            # FastAPI 엔드포인트(/recommend)
+    ├── cli/kgpt_cli.py       # 개발자 CLI
+    ├── kb/kb.py              # 시맨틱 KB + 간단 검색
     │   └── seed/{tunables.csv,outcomes.csv}
-    ├── llm/{engine.py,prompts.py}
-    ├── safety/runtime.py
-    └── telemetry/{simulate_telemetry.py, ebpf/{ctxswitch.c,loader.py}}
+    ├── llm/{engine.py,prompts.py}  # 규칙기반 LLM 대체 + 플러그인 훅
+    ├── safety/runtime.py     # 카나리/롤백/SLO 가드레일
+    └── telemetry/
+        ├── simulate_telemetry.py         # 루트 불필요 시뮬레이션
+        └── ebpf/{ctxswitch.c,loader.py}  # 선택: bcc 필요(루트)
+
 ```
 
 ### Notes
