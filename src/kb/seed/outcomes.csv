@@ -1,0 +1,5 @@
+workload,context,actions,outcome_notes
+web,low_runq_high_ctx,reduce sched_latency_ns by 20%,Improves tail at risk of fairness degradation.
+oltp,steady_io_bursty_mem,merge dirty_* into budget knob 18,Stabilizes writeback and reduces oscillation.
+streaming,burst_wakeups,set sched_wake_affine=1 + min_granularity tighter,Reduces tail spikes by localizing cache.
+sensor,bursty_irq_io,hardcode elevator=none and cap dirty budget,Prevents misuses on NVMe-only nodes.

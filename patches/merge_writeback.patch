@@ -1,0 +1,10 @@
+--- a/mm/page-writeback.c
++++ b/mm/page-writeback.c
+@@ -101,10 +101,8 @@
+- int dirty_background_ratio = 10;   /* start background writeback */
+- int vm_dirty_ratio          = 20;   /* hard limit */
++ int vm_dirty_budget_ratio = 18;    /* unified threshold */
+  ...
+- static int dirty_background_ratio_handler(...)
+- static int vm_dirty_ratio_handler(...)
++ static int vm_dirty_budget_ratio_handler(...)

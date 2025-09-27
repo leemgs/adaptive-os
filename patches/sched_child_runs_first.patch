@@ -1,0 +1,5 @@
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -3120,7 +3120,7 @@
+- static int sched_child_runs_first = 1;
++ static int sched_child_runs_first = 0;

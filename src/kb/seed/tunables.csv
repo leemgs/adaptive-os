@@ -1,0 +1,9 @@
+name,subsystem,default,range,description
+vm.dirty_background_ratio,mm,10,0-100,Background writeback threshold (% of memory).
+vm.dirty_ratio,mm,20,0-100,Hard writeback threshold (% of memory).
+vm.dirty_budget_ratio,mm,18,0-100,Unified threshold proposed by KernelGPT.
+kernel.sched_min_granularity_ns,sched,2250000,100000-10000000,Targeted minimum slice.
+kernel.sched_latency_ns,sched,24000000,1000000-100000000,Period for CFS fairness rotation.
+kernel.sched_child_runs_first,sched,1,0-1,Legacy child-first bias knob.
+kernel.sched_wake_affine,sched,1,0-1,Prefer waking to same core/LLC.
+iosched.elevator,block,none,none,Default IO elevator policy knob.
